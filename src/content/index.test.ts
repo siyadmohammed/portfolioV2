@@ -146,6 +146,14 @@ describe("content integrity", () => {
     expect(getExperience()[0].period.end).toBe("present");
   });
 
+  it("has every live project link as a valid https URL", () => {
+    const invalid = projects
+      .map((p) => p.links?.live)
+      .filter((href): href is string => href !== undefined)
+      .filter((href) => !URL.canParse(href) || new URL(href).protocol !== "https:");
+    expect(invalid).toEqual([]);
+  });
+
   it("has no link pointing at a TODO placeholder", () => {
     const hrefs = [...profile.links.map((l) => l.href), profile.resumeUrl ?? ""];
     expect(hrefs.filter((href) => /todo/i.test(href))).toEqual([]);

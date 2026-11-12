@@ -20,6 +20,22 @@ export const projects: readonly Project[] = [
     stack: ["Sabre GDS", "AWS"],
   },
   {
+    slug: "plusone",
+    title: "PlusOne",
+    summary: "Mobile app for plusone.today",
+    // TODO: context (client, employer or own project) and dates.
+    problem:
+      "PlusOne is a private connection layer for Kochi, not a dating app: people post an intent, join a lot, or get matched with someone heading to the same place tonight. It needed a mobile app alongside the web app.",
+    contributionsLabel: "My part",
+    contributions: [
+      "Built the mobile app for the PlusOne web app using Capacitor.",
+      "Authentication and the rest of the app work inside the mobile app, not just on the web.",
+    ],
+    // TODO: platforms (iOS / Android), store status, key decisions, outcome, lesson.
+    stack: ["Capacitor"],
+    links: { live: "https://plusone.today" },
+  },
+  {
     slug: "parivaar-cover",
     title: "Parivaar Cover",
     summary: "AI insurance advisor",

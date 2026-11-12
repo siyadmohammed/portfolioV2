@@ -54,8 +54,12 @@ export type Project = {
   /** Credits work on the project that was not mine. */
   teamNote?: string;
   outcome?: string;
-  lesson: string;
+  lesson?: string;
   stack: readonly string[];
+  links?: {
+    /** Public URL of the live product. */
+    live?: string;
+  };
 };
 
 export type Experience = {

@@ -103,21 +103,36 @@ export function CaseStudy({ project, marker }: CaseStudyProps) {
           <Row label="Stack">
             <StackList items={project.stack} />
           </Row>
+
+          {project.links?.live && (
+            <Row label="Live">
+              <a
+                href={project.links.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-draw font-medium text-accent"
+              >
+                {new URL(project.links.live).host} ↗
+              </a>
+            </Row>
+          )}
         </dl>
       </Reveal>
 
-      <Reveal>
-        <figure className="mt-10 rounded-2xl border border-line bg-surface px-6 py-8 md:px-10 md:py-10">
-          <blockquote className="font-serif text-3xl leading-tight tracking-tight md:text-4xl">
-            <span className="text-accent">“</span>
-            {project.lesson}
-            <span className="text-accent">”</span>
-          </blockquote>
-          <figcaption className="mt-4 font-mono text-xs tracking-wide text-muted uppercase">
-            Lesson
-          </figcaption>
-        </figure>
-      </Reveal>
+      {project.lesson && (
+        <Reveal>
+          <figure className="mt-10 rounded-2xl border border-line bg-surface px-6 py-8 md:px-10 md:py-10">
+            <blockquote className="font-serif text-3xl leading-tight tracking-tight md:text-4xl">
+              <span className="text-accent">“</span>
+              {project.lesson}
+              <span className="text-accent">”</span>
+            </blockquote>
+            <figcaption className="mt-4 font-mono text-xs tracking-wide text-muted uppercase">
+              Lesson
+            </figcaption>
+          </figure>
+        </Reveal>
+      )}
     </article>
   );
 }
