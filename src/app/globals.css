@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Warm paper and ink, one signal-orange accent. Dark mode is the same palette at night. */
+:root {
+  --paper: #f3efe6;
+  --surface: #faf8f2;
+  --ink: #17150f;
+  --muted: #6b6457;
+  --line: #dcd4c4;
+  --accent: #c2410c;
+  --accent-ink: #fff8f1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12110d;
+    --surface: #1b1a15;
+    --ink: #ece6d8;
+    --muted: #9b9383;
+    --line: #2e2b23;
+    --accent: #ff7a3d;
+    --accent-ink: #160b04;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Underline that draws in from the left on hover. */
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 300ms ease;
+}
+
+.link-draw:hover,
+.link-draw:focus-visible {
+  background-size: 100% 1px;
+}

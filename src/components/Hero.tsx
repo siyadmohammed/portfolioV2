@@ -1,0 +1,79 @@
+import { profile } from "@/content";
+import { LocalTime } from "./LocalTime";
+import { Reveal } from "./Reveal";
+import { SplitWords } from "./SplitWords";
+
+export function Hero() {
+  const linkedIn = profile.links.find((link) => link.kind === "linkedin");
+
+  return (
+    <section id="top" className="pt-16 pb-24 md:pt-24 md:pb-32">
+      <p className="flex items-center gap-2.5 font-mono text-xs tracking-wide text-muted uppercase">
+        <span className="relative flex size-2">
+          <span className="absolute inline-flex size-full rounded-full bg-accent opacity-60 motion-safe:animate-ping" />
+          <span className="relative inline-flex size-2 rounded-full bg-accent" />
+        </span>
+        {profile.availability}
+      </p>
+
+      <h1 className="mt-8 font-serif text-[clamp(3.25rem,11vw,9rem)] leading-[0.92] tracking-[-0.02em]">
+        <SplitWords text={profile.name} />
+      </h1>
+
+      <div className="mt-14 grid gap-12 md:grid-cols-12">
+        <Reveal delay={0.4} className="md:col-span-7">
+          <p className="text-2xl leading-snug tracking-tight md:text-[1.75rem]">
+            <span className="text-accent">{profile.role}.</span>{" "}
+            {profile.headline}
+          </p>
+          <p className="mt-6 max-w-xl leading-relaxed text-muted">
+            {profile.intro}
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-3 text-sm font-medium">
+            <a
+              href={`mailto:${profile.email}`}
+              className="rounded-full bg-accent px-5 py-3 text-accent-ink transition-transform hover:-translate-y-0.5"
+            >
+              Email me
+            </a>
+            {linkedIn && (
+              <a
+                href={linkedIn.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-line px-5 py-3 transition-colors hover:border-ink"
+              >
+                {linkedIn.label} ↗
+              </a>
+            )}
+            {profile.resumeUrl && (
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-line px-5 py-3 transition-colors hover:border-ink"
+              >
+                Resume ↗
+              </a>
+            )}
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.55} className="md:col-span-4 md:col-start-9">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-line pt-6 font-mono text-xs md:grid-cols-1">
+            <div>
+              <dt className="tracking-wide text-muted uppercase">Based in</dt>
+              <dd className="mt-1.5 text-sm text-ink">{profile.location}</dd>
+            </div>
+            <div>
+              <dt className="tracking-wide text-muted uppercase">Local time</dt>
+              <dd className="mt-1.5 text-sm text-ink">
+                <LocalTime timeZone={profile.timeZone} />
+              </dd>
+            </div>
+          </dl>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
