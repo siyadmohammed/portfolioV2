@@ -26,9 +26,14 @@ export function Hero() {
             <span className="text-accent">{profile.role}.</span>{" "}
             {profile.headline}
           </p>
-          <p className="mt-6 max-w-xl leading-relaxed text-muted">
-            {profile.intro}
-          </p>
+          {profile.bio.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="mt-6 max-w-xl leading-relaxed text-muted"
+            >
+              {paragraph}
+            </p>
+          ))}
           <div className="mt-10 flex flex-wrap items-center gap-3 text-sm font-medium">
             <a
               href={`mailto:${profile.email}`}
@@ -61,6 +66,12 @@ export function Hero() {
 
         <Reveal delay={0.55} className="md:col-span-4 md:col-start-9">
           <dl className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-line pt-6 font-mono text-xs md:grid-cols-1">
+            <div className="col-span-2 md:col-span-1">
+              <dt className="tracking-wide text-muted uppercase">Currently</dt>
+              <dd className="mt-1.5 font-sans text-sm leading-relaxed text-ink">
+                {profile.current}
+              </dd>
+            </div>
             <div>
               <dt className="tracking-wide text-muted uppercase">Based in</dt>
               <dd className="mt-1.5 text-sm text-ink">{profile.location}</dd>

@@ -4,14 +4,18 @@ export const profile: Profile = {
   name: "Mohammed Siyad M A",
   role: "Full-Stack Engineer",
   headline:
-    "Building web products end to end, from Figma screens to production APIs.",
-  intro:
-    "Full-stack engineer with about 3 years of experience, including remote work for companies in the US and UAE. I usually own products end to end as the sole developer: UI, APIs, database and deployment. I care about clean UX and shipping fast, and I use AI deliberately in my development workflow.",
+    "I build web products end to end, from the first Figma screen to the production API.",
+  bio: [
+    "For about three years I've shipped software for companies in the US, the UAE and India, mostly remote and usually as the only developer on the product. That means I own all of it: the interface, the APIs, the database and the deploy.",
+    "I care about interfaces that feel obvious and about getting real things into production quickly.",
+  ],
+  current:
+    "Sole engineer on an unreleased fintech product at Winbold Capital Platforms.",
   location: "Kerala, India (IST)",
   timeZone: "Asia/Kolkata",
   availability: "Open to remote roles with overlap for US/EU teams.",
   contactNote:
-    "Open to remote full-stack roles. The fastest way to reach me is email.",
+    "I'm open to remote full-stack roles. Email is the fastest way to reach me.",
   email: "siyad.ma.mohammed2001@gmail.com",
   // TODO: add the GitHub profile link ({ kind: "github", ... }).
   links: [

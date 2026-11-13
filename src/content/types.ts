@@ -23,8 +23,12 @@ export type Education = {
 export type Profile = {
   name: string;
   role: string;
+  /** One first-person line under the name. */
   headline: string;
-  intro: string;
+  /** Short first-person paragraphs. */
+  bio: readonly string[];
+  /** What I'm doing right now, one sentence. */
+  current: string;
   location: string;
   /** IANA zone used for the local-time readout, e.g. "Asia/Kolkata". */
   timeZone: string;
@@ -36,25 +40,15 @@ export type Profile = {
   education: Education;
 };
 
-/** A case study, shown in the order it appears in the content file. */
+/** A selected project, shown in the order it appears in the content file. */
 export type Project = {
   /** Anchor id and render key; must be unique across all projects. */
   slug: string;
   title: string;
-  summary: string;
-  /** e.g. "Hackathon team project"; omit for solo or employer work. */
+  /** e.g. "Hackathon, team project"; omit when there is nothing to add. */
   context?: string;
-  problem: string;
-  /** Ordered steps of the system's main flow, drawn as a pipeline. */
-  flow?: readonly string[];
-  /** Dimensions whose every combination was tested, drawn as "a × b × c". */
-  testedCombinations?: readonly string[];
-  contributionsLabel: "My decisions" | "My part";
-  contributions: readonly string[];
-  /** Credits work on the project that was not mine. */
-  teamNote?: string;
-  outcome?: string;
-  lesson?: string;
+  /** One or two first-person sentences. */
+  description: string;
   stack: readonly string[];
   links?: {
     /** Public URL of the live product. */
@@ -71,6 +65,7 @@ export type Experience = {
   location: string;
   /** e.g. "Internship, then full-time". */
   employmentNote?: string;
-  highlights: readonly string[];
+  /** One short paragraph. */
+  summary: string;
   stack: readonly string[];
 };

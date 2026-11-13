@@ -20,7 +20,7 @@ function job(id: string, period: DateRange): Experience {
     title: "",
     period,
     location: "",
-    highlights: [],
+    summary: "",
     stack: [],
   };
 }

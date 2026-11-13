@@ -37,16 +37,7 @@ export function ExperienceSection() {
                   {job.company}
                 </p>
                 <p className="mt-1 text-sm text-muted">{job.location}</p>
-                <ul className="mt-5 flex flex-col gap-2.5 leading-relaxed">
-                  {job.highlights.map((highlight) => (
-                    <li
-                      key={highlight}
-                      className="relative pl-5 before:absolute before:left-0 before:text-accent before:content-['–']"
-                    >
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-4 max-w-2xl leading-relaxed">{job.summary}</p>
                 <div className="mt-5">
                   <StackList items={job.stack} />
                 </div>

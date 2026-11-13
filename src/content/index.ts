@@ -1,10 +1,10 @@
 import { experience } from "./experience";
 import { profile } from "./profile";
-import { aiPractices, projects } from "./projects";
+import { projects } from "./projects";
 import type { DateRange, Education, Experience, YearMonth } from "./types";
 
 export type * from "./types";
-export { aiPractices, profile, projects };
+export { profile, projects };
 
 const MONTHS = [
   "Jan",
