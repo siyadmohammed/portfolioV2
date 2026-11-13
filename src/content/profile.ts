@@ -25,7 +25,8 @@ export const profile: Profile = {
       label: "LinkedIn",
     },
   ],
-  // TODO: add resumeUrl once the resume PDF is in /public.
+  resumeUrl:
+    "https://drive.google.com/file/d/1SVhOrWg5vNwabG6TajvDPyT0EsTsNv_d/view?usp=sharing",
   education: {
     degree: "B.Tech in Computer Science",
     institution: "Vidya Academy of Science and Technology",
