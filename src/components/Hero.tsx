@@ -4,8 +4,6 @@ import { Reveal } from "./Reveal";
 import { SplitWords } from "./SplitWords";
 
 export function Hero() {
-  const linkedIn = profile.links.find((link) => link.kind === "linkedin");
-
   return (
     <section id="top" className="pt-16 pb-24 md:pt-24 md:pb-32">
       <p className="flex items-center gap-2.5 font-mono text-xs tracking-wide text-muted uppercase">
@@ -41,16 +39,17 @@ export function Hero() {
             >
               Email me
             </a>
-            {linkedIn && (
+            {profile.links.map((link) => (
               <a
-                href={linkedIn.href}
+                key={link.href}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full border border-line px-5 py-3 transition-colors hover:border-ink"
               >
-                {linkedIn.label} ↗
+                {link.label} ↗
               </a>
-            )}
+            ))}
             {profile.resumeUrl && (
               <a
                 href={profile.resumeUrl}

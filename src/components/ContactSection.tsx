@@ -4,8 +4,6 @@ import { Reveal } from "./Reveal";
 import { Section } from "./Section";
 
 export function ContactSection() {
-  const linkedIn = profile.links.find((link) => link.kind === "linkedin");
-
   return (
     <Section id="contact" index="03" title="Contact">
       <Reveal>
@@ -18,16 +16,19 @@ export function ContactSection() {
         >
           {profile.email}
         </a>
-        {linkedIn && (
-          <p className="mt-6">
-            <a
-              href={linkedIn.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-draw text-lg"
-            >
-              {linkedIn.label} ↗
-            </a>
+        {profile.links.length > 0 && (
+          <p className="mt-6 flex flex-wrap gap-6">
+            {profile.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-draw text-lg"
+              >
+                {link.label} ↗
+              </a>
+            ))}
           </p>
         )}
       </Reveal>

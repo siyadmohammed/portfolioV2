@@ -12,7 +12,7 @@ export const projects: readonly Project[] = [
   {
     slug: "plusone",
     title: "PlusOne",
-    // TODO: context (client, employer or own project).
+    context: "Client project",
     description:
       "A private connection layer for Kochi: post an intent, join a lot, or get matched with someone heading to the same place tonight. I built its mobile app with Capacitor, with sign-in and the full product working on the phone.",
     stack: ["Capacitor"],

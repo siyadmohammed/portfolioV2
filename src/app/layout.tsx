@@ -22,6 +22,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(profile.siteUrl),
   title: `${profile.name} | ${profile.role}`,
   description: `${profile.role}. ${profile.headline}`,
 };

@@ -1,6 +1,7 @@
 import type { Profile } from "./types";
 
 export const profile: Profile = {
+  siteUrl: "https://siyadmohammed.vercel.app",
   name: "Mohammed Siyad M A",
   role: "Full-Stack Engineer",
   headline:
@@ -17,12 +18,16 @@ export const profile: Profile = {
   contactNote:
     "I'm open to remote full-stack roles. Email is the fastest way to reach me.",
   email: "siyad.ma.mohammed2001@gmail.com",
-  // TODO: add the GitHub profile link ({ kind: "github", ... }).
   links: [
     {
       kind: "linkedin",
       href: "https://www.linkedin.com/in/mohammedsiyad2001/",
       label: "LinkedIn",
+    },
+    {
+      kind: "github",
+      href: "https://github.com/siyadmohammed",
+      label: "GitHub",
     },
   ],
   resumeUrl:

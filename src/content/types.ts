@@ -21,6 +21,8 @@ export type Education = {
 };
 
 export type Profile = {
+  /** Public origin of the deployed site; share-card and other absolute URLs build on it. */
+  siteUrl: string;
   name: string;
   role: string;
   /** One first-person line under the name. */
