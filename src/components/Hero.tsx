@@ -2,7 +2,6 @@ import { ArrowUpRight, FileText, Mail } from "lucide-react";
 import { profile } from "@/content";
 import DecryptedText from "./DecryptedText";
 import { LocalTime } from "./LocalTime";
-import { Reveal } from "./Reveal";
 import { ShimmerButton } from "./ShimmerButton";
 import { SplitWords } from "./SplitWords";
 
@@ -24,17 +23,17 @@ export function Hero() {
         {profile.availability}
       </p>
 
-      <h1 className="mt-8 font-serif text-[clamp(3.25rem,11vw,9rem)] leading-[0.92] tracking-[-0.02em]">
+      <h1 className="mt-8 font-display text-[clamp(3rem,10vw,8.5rem)] leading-[0.92] font-semibold tracking-[-0.045em]">
         <SplitWords text={profile.name} />
       </h1>
 
       <div className="mt-14 grid gap-12 md:grid-cols-12">
-        <Reveal delay={0.4} className="md:col-span-7">
+        <div className="enter md:col-span-7" style={{ animationDelay: "0.4s" }}>
           <p className="text-2xl leading-snug tracking-tight md:text-[1.75rem]">
             <span className="text-accent">
               <DecryptedText
                 text={`${profile.role}.`}
-                animateOn="view"
+                animateOn="hover"
                 sequential
                 speed={45}
                 useOriginalCharsOnly
@@ -91,9 +90,12 @@ export function Hero() {
               </a>
             )}
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal delay={0.55} className="md:col-span-4 md:col-start-9">
+        <div
+          className="enter md:col-span-4 md:col-start-9"
+          style={{ animationDelay: "0.55s" }}
+        >
           <dl className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-line pt-6 font-mono text-xs md:grid-cols-1">
             <div className="col-span-2 md:col-span-1">
               <dt className="tracking-wide text-muted uppercase">Currently</dt>
@@ -112,7 +114,7 @@ export function Hero() {
               </dd>
             </div>
           </dl>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

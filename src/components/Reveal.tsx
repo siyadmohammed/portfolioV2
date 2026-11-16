@@ -1,25 +1,51 @@
 "use client";
 
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { useAnimate, useInView, useReducedMotion } from "motion/react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
-  delay?: number;
   className?: string;
 };
 
-/** Fades and lifts its content into place the first time it scrolls into view. */
-export function Reveal({ children, delay = 0, className }: RevealProps) {
+/**
+ * Lifts its content into place the first time it scrolls into view.
+ *
+ * The server HTML is always visible. Only content that starts below the fold
+ * is hidden, and only once JavaScript is running, so a slow or failed script
+ * never leaves part of the page blank.
+ */
+export function Reveal({ children, className }: RevealProps) {
+  const [scope, animate] = useAnimate<HTMLDivElement>();
+  const inView = useInView(scope, { once: true, margin: "0px 0px -10% 0px" });
+  const reduceMotion = useReducedMotion();
+  const hidden = useRef(false);
+
+  useEffect(() => {
+    const element = scope.current;
+    if (
+      reduceMotion ||
+      element.getBoundingClientRect().top < window.innerHeight
+    ) {
+      return;
+    }
+    hidden.current = true;
+    animate(element, { opacity: 0, y: 24 }, { duration: 0 });
+  }, [animate, scope, reduceMotion]);
+
+  useEffect(() => {
+    if (!inView || !hidden.current) return;
+    hidden.current = false;
+    animate(
+      scope.current,
+      { opacity: 1, y: 0 },
+      { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    );
+  }, [inView, animate, scope]);
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div ref={scope} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

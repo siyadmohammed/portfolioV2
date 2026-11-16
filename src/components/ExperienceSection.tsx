@@ -33,7 +33,7 @@ export function ExperienceSection() {
                 <h3 className="mt-3 text-xl font-medium tracking-tight">
                   {job.title}
                 </h3>
-                <p className="mt-1 font-serif text-2xl text-muted italic">
+                <p className="mt-1 font-display text-xl font-medium text-muted">
                   {job.company}
                 </p>
                 <p className="mt-1 text-sm text-muted">{job.location}</p>
@@ -53,7 +53,7 @@ export function ExperienceSection() {
         </p>
         <p className="mt-2 text-lg">
           {education.degree},{" "}
-          <span className="font-serif text-xl italic">
+          <span className="font-display font-medium">
             {education.institution}
           </span>
           , {education.location}

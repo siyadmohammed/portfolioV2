@@ -40,7 +40,7 @@
   --color-accent-ink: var(--accent-ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-instrument-serif);
+  --font-display: var(--font-bricolage);
 }
 
 @keyframes shimmer-slide {
@@ -63,6 +63,38 @@
   }
   100% {
     transform: translateZ(0) rotate(360deg);
+  }
+}
+
+/*
+ * Entrance animations for content above the fold. CSS rather than JavaScript,
+ * so the hero plays on first paint and never waits on a script to appear.
+ */
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes word-up {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+.enter {
+  animation: enter-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.enter-word {
+  animation: word-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter,
+  .enter-word {
+    animation: none;
   }
 }
 

@@ -65,13 +65,13 @@ const portrait = await readFile(
 );
 
 export default async function Image() {
-  const [serif, sans, mono] = await Promise.all([
-    loadGoogleFont("Instrument+Serif", profile.name),
+  const [display, sans, mono] = await Promise.all([
+    loadGoogleFont("Bricolage+Grotesque:wght@600", profile.name),
     loadGoogleFont("Geist:wght@400", sansText),
     loadGoogleFont("Geist+Mono", profile.role.toUpperCase()),
   ]);
   const fonts = [
-    serif && { name: "Instrument Serif", data: serif, weight: 400 as const },
+    display && { name: "Bricolage Grotesque", data: display, weight: 600 as const },
     sans && { name: "Geist", data: sans, weight: 400 as const },
     mono && { name: "Geist Mono", data: mono, weight: 400 as const },
   ].filter((font) => font !== null);
@@ -114,8 +114,8 @@ export default async function Image() {
             <div
               style={{
                 marginTop: 20,
-                fontFamily: "Instrument Serif",
-                fontSize: 84,
+                fontFamily: "Bricolage Grotesque",
+                fontSize: 62,
                 whiteSpace: "nowrap",
                 lineHeight: 1,
                 letterSpacing: -1.5,
