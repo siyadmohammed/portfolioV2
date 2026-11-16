@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { profile } from "@/content";
 import { LocalTime } from "./LocalTime";
 import { Reveal } from "./Reveal";
@@ -24,9 +25,13 @@ export function ContactSection() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-draw text-lg"
+                className="group inline-flex items-center gap-1.5 text-lg"
               >
-                {link.label} ↗
+                <span className="link-draw">{link.label}</span>
+                <ArrowUpRight
+                  aria-hidden
+                  className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
             ))}
           </p>

@@ -21,8 +21,8 @@ export const projects: readonly Project[] = [
     title: "PlusOne",
     context: "Client project",
     description:
-      "A private connection layer for Kochi: post an intent, join a lot, or get matched with someone heading to the same place tonight. I built its mobile app with Capacitor, with sign-in and the full product working on the phone.",
-    stack: ["Capacitor"],
+      "A private connection layer for Kochi: post an intent, join a lot, or get matched with someone heading to the same place tonight. The Next.js web app runs entirely on Firebase with no server of its own, and I wrapped it into a native iPhone app with Capacitor and Xcode, sign-in included.",
+    stack: ["Next.js", "Firebase", "Capacitor", "iOS / Xcode", "Vercel"],
     links: { live: "https://plusone.today" },
   },
   {

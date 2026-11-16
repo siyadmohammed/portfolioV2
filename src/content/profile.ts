@@ -31,7 +31,7 @@ export const profile: Profile = {
     },
   ],
   resumeUrl:
-    "https://drive.google.com/file/d/1SVhOrWg5vNwabG6TajvDPyT0EsTsNv_d/view?usp=sharing",
+    "https://docs.google.com/document/d/1nNtLTiLVr5tgs9fBHNxOxIVGYQ_CKKSL/view",
   education: {
     degree: "B.Tech in Computer Science",
     institution: "Vidya Academy of Science and Technology",

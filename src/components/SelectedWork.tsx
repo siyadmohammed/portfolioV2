@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/content";
 import { MagicCard } from "./MagicCard";
 import { Reveal } from "./Reveal";
@@ -34,15 +35,14 @@ export function SelectedWork() {
                               href={live}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group inline-flex items-baseline gap-2 transition-colors hover:text-accent"
+                              className="group inline-flex items-center gap-2 transition-colors hover:text-accent"
                             >
                               {project.title}
-                              <span
+                              <ArrowUpRight
                                 aria-hidden
-                                className="text-2xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                              >
-                                ↗
-                              </span>
+                                strokeWidth={1.5}
+                                className="size-7 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                              />
                             </a>
                           ) : (
                             project.title

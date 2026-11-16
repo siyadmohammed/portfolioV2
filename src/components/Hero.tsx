@@ -1,3 +1,4 @@
+import { ArrowUpRight, FileText, Mail } from "lucide-react";
 import { profile } from "@/content";
 import DecryptedText from "./DecryptedText";
 import { LocalTime } from "./LocalTime";
@@ -54,8 +55,9 @@ export function Hero() {
               href={`mailto:${profile.email}`}
               background="var(--accent)"
               shimmerColor="#ffffff"
-              className="border-transparent px-5 py-3 text-accent-ink"
+              className="gap-2 border-transparent px-5 py-3 text-accent-ink"
             >
+              <Mail aria-hidden className="size-4" />
               Email me
             </ShimmerButton>
             {profile.links.map((link) => (
@@ -64,9 +66,13 @@ export function Hero() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-line px-5 py-3 transition-colors hover:border-ink"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-line px-5 py-3 transition-colors hover:border-ink"
               >
-                {link.label} ↗
+                {link.label}
+                <ArrowUpRight
+                  aria-hidden
+                  className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
             ))}
             {profile.resumeUrl && (
@@ -74,9 +80,14 @@ export function Hero() {
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-line px-5 py-3 transition-colors hover:border-ink"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-line px-5 py-3 transition-colors hover:border-ink"
               >
-                Resume ↗
+                <FileText aria-hidden className="size-4" />
+                Resume
+                <ArrowUpRight
+                  aria-hidden
+                  className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
             )}
           </div>
