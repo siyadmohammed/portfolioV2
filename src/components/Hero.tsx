@@ -1,11 +1,20 @@
 import { profile } from "@/content";
+import DecryptedText from "./DecryptedText";
 import { LocalTime } from "./LocalTime";
 import { Reveal } from "./Reveal";
+import { ShimmerButton } from "./ShimmerButton";
 import { SplitWords } from "./SplitWords";
 
 export function Hero() {
   return (
-    <section id="top" className="pt-16 pb-24 md:pt-24 md:pb-32">
+    <section
+      id="top"
+      className="relative isolate pt-16 pb-24 md:pt-24 md:pb-32"
+    >
+      <div
+        aria-hidden
+        className="dot-grid pointer-events-none absolute -inset-x-5 inset-y-0 -z-10 sm:-inset-x-8"
+      />
       <p className="flex items-center gap-2.5 font-mono text-xs tracking-wide text-muted uppercase">
         <span className="relative flex size-2">
           <span className="absolute inline-flex size-full rounded-full bg-accent opacity-60 motion-safe:animate-ping" />
@@ -21,7 +30,15 @@ export function Hero() {
       <div className="mt-14 grid gap-12 md:grid-cols-12">
         <Reveal delay={0.4} className="md:col-span-7">
           <p className="text-2xl leading-snug tracking-tight md:text-[1.75rem]">
-            <span className="text-accent">{profile.role}.</span>{" "}
+            <span className="text-accent">
+              <DecryptedText
+                text={`${profile.role}.`}
+                animateOn="view"
+                sequential
+                speed={45}
+                useOriginalCharsOnly
+              />
+            </span>{" "}
             {profile.headline}
           </p>
           {profile.bio.map((paragraph) => (
@@ -33,12 +50,14 @@ export function Hero() {
             </p>
           ))}
           <div className="mt-10 flex flex-wrap items-center gap-3 text-sm font-medium">
-            <a
+            <ShimmerButton
               href={`mailto:${profile.email}`}
-              className="rounded-full bg-accent px-5 py-3 text-accent-ink transition-transform hover:-translate-y-0.5"
+              background="var(--accent)"
+              shimmerColor="#ffffff"
+              className="border-transparent px-5 py-3 text-accent-ink"
             >
               Email me
-            </a>
+            </ShimmerButton>
             {profile.links.map((link) => (
               <a
                 key={link.href}

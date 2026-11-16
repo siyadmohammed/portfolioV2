@@ -7,12 +7,12 @@ export const alt = `${profile.name}, ${profile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Light-mode palette from globals.css; the card has no dark variant.
-const PAPER = "#f3efe6";
-const INK = "#17150f";
-const MUTED = "#6b6457";
-const LINE = "#dcd4c4";
-const ACCENT = "#c2410c";
+// Dark palette from globals.css; the card has no light variant.
+const PAPER = "#0b0d0c";
+const INK = "#e8ece6";
+const MUTED = "#8a938c";
+const LINE = "#232825";
+const ACCENT = "#c5f82a";
 
 const FONT_TIMEOUT_MS = 10_000;
 

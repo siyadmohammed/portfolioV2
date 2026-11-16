@@ -1,29 +1,36 @@
 @import "tailwindcss";
 
-/* Warm paper and ink, one signal-orange accent. Dark mode is the same palette at night. */
+/* Graphite with an electric-lime accent; light mode is cool off-white with deep green. */
 :root {
-  --paper: #f3efe6;
-  --surface: #faf8f2;
-  --ink: #17150f;
-  --muted: #6b6457;
-  --line: #dcd4c4;
-  --accent: #c2410c;
-  --accent-ink: #fff8f1;
+  --paper: #f6f7f4;
+  --surface: #ffffff;
+  --ink: #0e110f;
+  --muted: #5f6b63;
+  --line: #dde2dc;
+  --accent: #4d7c0f;
+  --accent-ink: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #12110d;
-    --surface: #1b1a15;
-    --ink: #ece6d8;
-    --muted: #9b9383;
-    --line: #2e2b23;
-    --accent: #ff7a3d;
-    --accent-ink: #160b04;
+    --paper: #0b0d0c;
+    --surface: #141715;
+    --ink: #e8ece6;
+    --muted: #8a938c;
+    --line: #232825;
+    --accent: #c5f82a;
+    --accent-ink: #0b0d0c;
   }
 }
 
 @theme inline {
+  /* Names the Magic UI components expect. */
+  --color-background: var(--surface);
+  --color-border: var(--line);
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite
+    alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+
   --color-paper: var(--paper);
   --color-surface: var(--surface);
   --color-ink: var(--ink);
@@ -34,6 +41,39 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-instrument-serif);
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+  15%,
+  35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+  65%,
+  85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}
+
+/* Dot grid behind the hero, fading out toward the edges. */
+.dot-grid {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--ink) 18%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 35%, black, transparent);
 }
 
 html {

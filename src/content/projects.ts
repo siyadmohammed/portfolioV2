@@ -7,7 +7,14 @@ export const projects: readonly Project[] = [
     context: "At Soft Touch Network",
     description:
       "A flight booking engine on Sabre GDS. I took it from an empty repo to production: live search, revalidation, fare rules and a pricing engine, tested across every date, passenger type and cabin class combination, running on AWS.",
-    stack: ["Sabre GDS", "AWS"],
+    stack: [
+      "Sabre GDS",
+      "Node.js",
+      "TypeScript",
+      "React",
+      "AWS (EC2, Amplify)",
+      "Firebase",
+    ],
   },
   {
     slug: "plusone",
