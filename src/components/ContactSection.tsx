@@ -8,7 +8,7 @@ export function ContactSection() {
   return (
     <Section id="contact" index="03" title="Contact">
       <Reveal>
-        <p className="font-display text-3xl leading-[1.1] font-medium tracking-[-0.03em] md:text-5xl">
+        <p className="font-serif text-4xl leading-[1.05] tracking-tight md:text-6xl">
           {profile.contactNote}
         </p>
         <a

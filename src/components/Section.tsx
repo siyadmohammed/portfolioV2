@@ -23,7 +23,7 @@ export function Section({ id, index, title, children }: SectionProps) {
           </p>
           <h2
             id={`${id}-heading`}
-            className="mt-3 font-display text-4xl leading-none font-semibold tracking-[-0.035em] md:text-5xl"
+            className="mt-3 font-serif text-5xl leading-none tracking-tight md:text-6xl"
           >
             {title}
           </h2>

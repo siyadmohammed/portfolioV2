@@ -29,7 +29,7 @@ export function SelectedWork() {
                     </span>
                     <div>
                       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-                        <h3 className="font-display text-3xl leading-none font-semibold tracking-[-0.03em] md:text-4xl">
+                        <h3 className="font-serif text-4xl leading-none tracking-tight md:text-5xl">
                           {live ? (
                             <a
                               href={live}

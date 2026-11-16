@@ -23,7 +23,7 @@ export function Hero() {
         {profile.availability}
       </p>
 
-      <h1 className="mt-8 font-display text-[clamp(3rem,10vw,8.5rem)] leading-[0.92] font-semibold tracking-[-0.045em]">
+      <h1 className="mt-8 font-serif text-[clamp(3.25rem,11vw,9rem)] leading-[0.92] tracking-[-0.02em]">
         <SplitWords text={profile.name} />
       </h1>
 
